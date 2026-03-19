@@ -23,7 +23,7 @@
 
   <!-- NAVBAR -->
   <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 bg-black/70 backdrop-blur z-50">
-    <button onclick="showSection('home')" class="text-gray-400 hover:text-white">
+    <button onclick="location.reload()" class="text-gray-400 hover:text-white">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l9.75-9.75L21.75 12M4.5 10.5v9.75a.75.75 0 00.75.75h4.5v-6h4.5v6h4.5a.75.75 0 00.75-.75V10.5" />
       </svg>
@@ -34,7 +34,7 @@
         <button onclick="showSection('ritratti')" class="block w-full text-left">Ritratti</button>
         <button onclick="showSection('paesaggi')" class="block w-full text-left">Paesaggi</button>
         <button onclick="showSection('sport')" class="block w-full text-left">Sport</button>
-        <button onclick="showSection('home'); setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 200);" class="block w-full text-left">Contatti</button>
+        <button onclick="location.reload()" class="block w-full text-left">Contatti</button>
       </div>
     </div>
   </nav>
