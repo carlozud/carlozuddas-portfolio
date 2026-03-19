@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlo Zuddas - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+
+      if(id === 'home'){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 bg-black/70 backdrop-blur z-50">
+    <button onclick="showSection('home')" class="text-gray-400 hover:text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l9.75-9.75L21.75 12M4.5 10.5v9.75a.75.75 0 00.75.75h4.5v-6h4.5v6h4.5a.75.75 0 00.75-.75V10.5" />
+      </svg>
+    </button>
+    <div class="relative">
+      <button onclick="toggleMenu()" class="text-2xl">☰</button>
+      <div id="menu" class="hidden absolute right-0 mt-2 bg-black border border-gray-700 rounded-xl p-4 text-sm space-y-2">
+        <button onclick="showSection('ritratti')" class="block w-full text-left">Ritratti</button>
+        <button onclick="showSection('paesaggi')" class="block w-full text-left">Paesaggi</button>
+        <button onclick="showSection('sport')" class="block w-full text-left">Sport</button>
+        <button onclick="showSection('home'); setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 200);" class="block w-full text-left">Contatti</button>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('hidden');
+    }
+  </script>
+
+  <!-- HERO -->
+  <section class="h-screen relative flex flex-col justify-center items-center text-center section" id="home">
+    <img src="IMG_0181.JPG" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="relative z-10">
+      <h1 class="text-5xl font-bold mb-2">Carlo Zuddas</h1>
+      <p class="text-2xl text-gray-200 mb-4 cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Fotografo</p>
+      <div class="flex items-center justify-center gap-4 text-lg text-gray-300">
+        <button onclick="showSection('ritratti')">Ritratti</button>
+        <span>|</span>
+        <button onclick="showSection('paesaggi')">Paesaggi</button>
+        <span>|</span>
+        <button onclick="showSection('sport')">Sport</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="px-6 py-16 bg-gray-900 section" id="about">
+    <button onclick="showSection('home')" class="mb-6">← Torna</button>
+    <h2 class="text-3xl font-semibold mb-6 text-center">Chi sono</h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-300 leading-relaxed">
+      Mi chiamo Carlo Zuddas, biologo con una forte passione per la fotografia.
+      <br><br>
+      Il mio lavoro si concentra sul movimento, sulla forma e sull’espressione del corpo nello spazio, con l’obiettivo di trasformare ogni gesto in un’immagine essenziale.
+      <br><br>
+      Nella fotografia sportiva cerco qualcosa che va oltre l’azione: equilibrio, ritmo e intensità, dando valore estetico a ogni istante.
+      <br><br>
+      Mi muovo tra ritratti, paesaggi e sport, mantenendo uno sguardo attento alla luce, ai dettagli e alla forza del momento.
+      <br><br>
+      La fotografia, per me, è un modo per osservare e interpretare ciò che accade.
+    </p>
+  </section>
+
+  <!-- DIVIDER + CONTACTS -->
+  <section class="px-6 py-10 bg-gray-900 section">
+    <hr class="border-gray-700 mb-8">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Contatti</h2>
+    <div class="text-center text-gray-300 space-y-4">
+      <a href="mailto:carlo.zuddas@yahoo.it" class="inline-block bg-white text-black px-6 py-2 rounded-2xl">Scrivimi</a>
+      <br>
+      <a href="https://instagram.com/crlzudd" target="_blank" class="inline-block border border-white px-6 py-2 rounded-2xl">Instagram</a>
+    </div>
+  </section>
+
+  <!-- RITRATTI -->
+  <section id="ritratti" class="hidden px-6 py-16 section">
+    <button onclick="showSection('home')" class="mb-6">← Torna</button>
+    <h2 class="text-3xl mb-8">Ritratti</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="IMG_8642.JPG" class="rounded-2xl w-full h-auto">
+      <img src="IMG_8569.JPG" class="rounded-2xl w-full h-auto">
+      <img src="IMG_0233-3.JPG" class="rounded-2xl w-full h-auto">
+      <img src="EF99271C-8505-4D26-8A7F-9671E2B7BDEE2024-08-31_12-28-49_238.JPEG" class="rounded-2xl w-full h-auto">
+    </div>
+  </section>
+
+  <!-- PAESAGGI -->
+  <section id="paesaggi" class="hidden px-6 py-16 section">
+    <button onclick="showSection('home')" class="mb-6">← Torna</button>
+    <h2 class="text-3xl mb-8">Paesaggi</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="IMG_0330.jpg" class="rounded-2xl w-full h-auto">
+    </div>
+  </section>
+
+  <!-- SPORT -->
+  <section id="sport" class="hidden px-6 py-16 section">
+    <button onclick="showSection('home')" class="mb-6">← Torna</button>
+    <h2 class="text-3xl mb-8">Sport</h2>
+
+    <!-- HERO IMAGE -->
+    <div class="mb-6">
+      <img src="F0283CFB-137A-44E8-A1E1-D5A966A1BB502025-07-17_22-03-25_239.jpg" class="rounded-2xl w-full h-auto">
+    </div>
+
+    <!-- GRID BELOW -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <img src="IMG_3919.jpg" class="rounded-2xl w-full h-auto">
+      <img src="foto5HDR.jpg" class="rounded-2xl w-full h-auto">
+      <img src="foto18HDR.jpg" class="rounded-2xl w-full h-auto">
+      <img src="foto13HDR.jpg" class="rounded-2xl w-full h-auto">
+      <img src="IMG_8799.JPG" class="rounded-2xl w-full h-auto">
+      <img src="foto10HDR.jpg" class="rounded-2xl w-full h-auto">
+      <img src="IMG_7839.jpg" class="rounded-2xl w-full h-auto">
+      <img src="ciclisti1HDR.jpg" class="rounded-2xl w-full h-auto">
+      <img src="IMG_3319.jpg" class="rounded-2xl w-full h-auto">
+    </div>
+  </section>
+
+  
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
+    <img id="lightbox-img" class="max-h-full max-w-full">
+  </div>
+
+  <!-- THUMBNAILS (only inside sections) -->
+  <div id="thumbs" class="hidden fixed bottom-0 left-0 w-full overflow-x-auto bg-black/80 p-2 flex gap-2 z-40">
+    <img src="F0283CFB-137A-44E8-A1E1-D5A966A1BB502025-07-17_22-03-25_239.jpg" class="h-16 cursor-pointer">
+    <img src="IMG_3919.jpg" class="h-16 cursor-pointer">
+    <img src="foto5HDR.jpg" class="h-16 cursor-pointer">
+    <img src="foto18HDR.jpg" class="h-16 cursor-pointer">
+    <img src="foto13HDR.jpg" class="h-16 cursor-pointer">
+    <img src="IMG_8799.JPG" class="h-16 cursor-pointer">
+    <img src="foto10HDR.jpg" class="h-16 cursor-pointer">
+  </div>
+
+  <script>
+    function toggleThumbs(id){
+      const thumbs = document.getElementById('thumbs');
+      thumbs.innerHTML = '';
+
+      if(id === 'home'){
+        thumbs.classList.add('hidden');
+        return;
+      }
+
+      thumbs.classList.remove('hidden');
+
+      if(id === 'sport'){
+        const images = [
+          "F0283CFB-137A-44E8-A1E1-D5A966A1BB502025-07-17_22-03-25_239.jpg",
+          "IMG_3919.jpg",
+          "foto5HDR.jpg",
+          "foto18HDR.jpg",
+          "foto13HDR.jpg",
+          "IMG_8799.JPG",
+          "foto10HDR.jpg"
+        ];
+
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.className = 'h-16 cursor-pointer';
+          img.onclick = () => {
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+            document.getElementById('lightbox-img').src = src;
+          };
+          thumbs.appendChild(img);
+        });
+      }
+    } else {
+        thumbs.classList.remove('hidden');
+      }
+    }
+
+    const originalShowSection = showSection;
+    showSection = function(id){
+      originalShowSection(id);
+      toggleThumbs(id);
+    }
+  </script>
+
+  <script>
+    // LIGHTBOX
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox').classList.remove('hidden');
+        document.getElementById('lightbox').classList.add('flex');
+        document.getElementById('lightbox-img').src = img.src;
+      });
+    });
+
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    });
+
+    // SCROLL ANIMATION
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0','translate-y-10');
+          entry.target.classList.add('opacity-100','translate-y-0');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('img').forEach(img => {
+      img.classList.add('transition','duration-700','opacity-0','translate-y-10');
+      observer.observe(img);
+    });
+  </script>
+
+  
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 text-sm py-6">
+    © 2026 Carlo Zuddas. Tutti i diritti riservati.
+  </footer>
+
+</body>
+</html>
