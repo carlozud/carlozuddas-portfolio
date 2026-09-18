@@ -31,10 +31,10 @@
     <div class="relative">
       <button onclick="toggleMenu()" class="text-2xl">☰</button>
       <div id="menu" class="hidden absolute right-0 mt-2 bg-black border border-gray-700 rounded-xl p-4 text-sm space-y-2">
-        <button onclick="showSection('ritratti')" class="block w-full text-left">Ritratti</button>
-        <button onclick="showSection('paesaggi')" class="block w-full text-left">Paesaggi</button>
+        <button onclick="showSection('ritratti')" class="block w-full text-left">Portraits</button>
+        <button onclick="showSection('paesaggi')" class="block w-full text-left">Landscapes</button>
         <button onclick="showSection('sport')" class="block w-full text-left">Sport</button>
-        <button onclick="location.reload()" class="block w-full text-left">Contatti</button>
+        <button onclick="location.reload()" class="block w-full text-left">Contact</button>
       </div>
     </div>
   </nav>
@@ -52,11 +52,11 @@
 
     <div class="relative z-10">
       <h1 class="text-5xl font-bold mb-2">Carlo Zuddas</h1>
-      <p class="text-2xl text-gray-200 mb-4 cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Fotografo</p>
+      <p class="text-2xl text-gray-200 mb-4 cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Photographer</p>
       <div class="flex items-center justify-center gap-4 text-lg text-gray-300">
-        <button onclick="showSection('ritratti')">Ritratti</button>
+        <button onclick="showSection('ritratti')">Portraits</button>
         <span>|</span>
-        <button onclick="showSection('paesaggi')">Paesaggi</button>
+        <button onclick="showSection('paesaggi')">Landscapes</button>
         <span>|</span>
         <button onclick="showSection('sport')">Sport</button>
       </div>
@@ -65,36 +65,36 @@
 
   <!-- ABOUT -->
   <section class="px-6 py-16 bg-gray-900 section" id="about">
-    <button onclick="showSection('home')" class="mb-6">← Torna</button>
-    <h2 class="text-3xl font-semibold mb-6 text-center">Chi sono</h2>
+    <button onclick="showSection('home')" class="mb-6">← Back</button>
+    <h2 class="text-3xl font-semibold mb-6 text-center">About me</h2>
     <p class="max-w-3xl mx-auto text-center text-gray-300 leading-relaxed">
-      Mi chiamo Carlo Zuddas, biologo con una forte passione per la fotografia.
+      My name is Carlo Zuddas, a biologist with a strong passion for photography.
       <br><br>
-      Il mio lavoro si concentra sul movimento, sulla forma e sull’espressione del corpo nello spazio, con l’obiettivo di trasformare ogni gesto in un’immagine essenziale.
+      My work focuses on movement, form and the expression of the body in space, with the aim of transforming every gesture into an essential image.
       <br><br>
-      Nella fotografia sportiva cerco qualcosa che va oltre l’azione: equilibrio, ritmo e intensità, dando valore estetico a ogni istante.
+      In sports photography, I look for something beyond the action: balance, rhythm and intensity, giving aesthetic value to every moment.
       <br><br>
-      Mi muovo tra ritratti, paesaggi e sport, mantenendo uno sguardo attento alla luce, ai dettagli e alla forza del momento.
+      I work across portraits, landscapes and sport, with a careful eye for light, details and the power of the moment.
       <br><br>
-      La fotografia, per me, è un modo per osservare e interpretare ciò che accade.
+      For me, photography is a way of observing and interpreting what happens.
     </p>
   </section>
 
   <!-- DIVIDER + CONTACTS -->
   <section class="px-6 py-10 bg-gray-900 section">
     <hr class="border-gray-700 mb-8">
-    <h2 class="text-2xl font-semibold mb-4 text-center">Contatti</h2>
+    <h2 class="text-2xl font-semibold mb-4 text-center">Contact</h2>
     <div class="text-center text-gray-300 space-y-4">
-      <a href="mailto:carlo.zuddas@yahoo.it" class="inline-block bg-white text-black px-6 py-2 rounded-2xl">Scrivimi</a>
+      <a href="mailto:carlo.zuddas@yahoo.it" class="inline-block bg-white text-black px-6 py-2 rounded-2xl">Contact me</a>
       <br>
-      <a href="https://instagram.com/crlzudd" target="_blank" class="inline-block border border-white px-6 py-2 rounded-2xl">Instagram</a>
+      <a href="https://instagram.com/carlozudd" target="_blank" class="inline-block border border-white px-6 py-2 rounded-2xl">Instagram</a>
     </div>
   </section>
 
   <!-- RITRATTI -->
   <section id="ritratti" class="hidden px-6 py-16 section">
-    <button onclick="showSection('home')" class="mb-6">← Torna</button>
-    <h2 class="text-3xl mb-8">Ritratti</h2>
+    <button onclick="showSection('home')" class="mb-6">← Back</button>
+    <h2 class="text-3xl mb-8">Portraits</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <img src="IMG_8642.JPG" class="rounded-2xl w-full h-auto">
       <img src="IMG_8569.JPG" class="rounded-2xl w-full h-auto">
@@ -105,11 +105,12 @@
 
   <!-- PAESAGGI -->
   <section id="paesaggi" class="hidden px-6 py-16 section">
-    <button onclick="showSection('home')" class="mb-6">← Torna</button>
-    <h2 class="text-3xl mb-8">Paesaggi</h2>
+    <button onclick="showSection('home')" class="mb-6">← Back</button>
+    <h2 class="text-3xl mb-8">Landscapes</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <img src="IMG_0330.jpg" class="rounded-2xl w-full h-auto">
       <img src="paesaggio_londra.jpg" class="rounded-2xl w-full h-auto">
+      <img src="FOTO7.JPG" class="rounded-2xl w-full h-auto">
     </div>
   </section>
 
@@ -128,7 +129,7 @@
 
         <button onclick="showSection('home')"
                 class="mb-8 border border-white px-6 py-2 rounded-2xl hover:bg-white hover:text-black transition">
-          ← Torna
+          ← Back
         </button>
 
         <h2 class="text-5xl font-bold mb-10">
@@ -142,7 +143,7 @@
               onclick="showSection('lunarossa-page')"
               class="w-full text-left px-6 py-4 text-xl hover:bg-white/10 transition">
 
-              Luna Rossa - America's Cup 2026 - Preliminary Regata Sardinia →
+              Luna Rossa - America's Cup 2026 - Preliminary Regatta Sardinia →
             </button>
           </div>
 
@@ -160,7 +161,7 @@
               onclick="showSection('varie-page')"
               class="w-full text-left px-6 py-4 text-xl hover:bg-white/10 transition">
 
-              Varie →
+              Miscellaneous →
             </button>
           </div>
 
@@ -174,7 +175,7 @@
 
     <button onclick="showSection('sport')"
             class="mb-8 border border-white px-6 py-2 rounded-2xl hover:bg-white hover:text-black transition">
-      ← Torna a Sport
+      ← Back a Sport
     </button>
 
     <h2 class="text-5xl font-bold mb-12 text-center">
@@ -209,11 +210,11 @@
 
     <button onclick="showSection('sport')"
             class="mb-8 border border-white px-6 py-2 rounded-2xl hover:bg-white hover:text-black transition">
-      ← Torna a Sport
+      ← Back a Sport
     </button>
 
     <h2 class="text-5xl font-bold mb-12 text-center">
-      Varie
+      Miscellaneous
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -236,11 +237,11 @@
 
     <button onclick="showSection('sport')"
             class="mb-8 border border-white px-6 py-2 rounded-2xl hover:bg-white hover:text-black transition">
-      ← Torna a Sport
+      ← Back a Sport
     </button>
 
     <h2 class="text-5xl font-bold mb-12 text-center">
-      Luna Rossa - America's Cup 2026 - Preliminary Regata Sardinia
+      Luna Rossa - America's Cup 2026 - Preliminary Regatta Sardinia
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
