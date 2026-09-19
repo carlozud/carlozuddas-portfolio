@@ -392,9 +392,11 @@
     // LIGHTBOX
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('click', () => {
-        document.getElementById('lightbox').classList.remove('hidden');
-        document.getElementById('lightbox').classList.add('flex');
-        document.getElementById('lightbox-img').src = img.src;
+        // Open the clicked image through the gallery-aware lightbox,
+        // so the previous/next arrows also work in Portraits and Landscapes.
+        if (img.id !== 'lightbox-img') {
+          openLightbox(img.src);
+        }
       });
     });
 
