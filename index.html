@@ -300,7 +300,34 @@
 
 <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
+
+    <button id="lightbox-prev" aria-label="Previous photo"
+            class="absolute left-5 md:left-10 top-1/2 -translate-y-1/2 z-50
+                   w-12 h-12 md:w-14 md:h-14 rounded-full
+                   bg-black/25 border border-white/35 text-white
+                   flex items-center justify-center p-0
+                   hover:bg-white/15 hover:border-white/60 transition">
+      <svg viewBox="0 0 24 24" class="w-7 h-7 md:w-8 md:h-8" fill="none"
+           stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M14.5 5.5 8 12l6.5 6.5"/>
+      </svg>
+    </button>
+
     <img id="lightbox-img" class="max-h-full max-w-full">
+
+    <button id="lightbox-next" aria-label="Next photo"
+            class="absolute right-5 md:right-10 top-1/2 -translate-y-1/2 z-50
+                   w-12 h-12 md:w-14 md:h-14 rounded-full
+                   bg-black/25 border border-white/35 text-white
+                   flex items-center justify-center p-0
+                   hover:bg-white/15 hover:border-white/60 transition">
+      <svg viewBox="0 0 24 24" class="w-7 h-7 md:w-8 md:h-8" fill="none"
+           stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="m9.5 5.5 6.5 6.5-6.5 6.5"/>
+      </svg>
+    </button>
   </div>
 
   <!-- THUMBNAILS (only inside sections) -->
@@ -400,15 +427,71 @@
 
 
 <script>
-function openLightbox(src) {
-  document.getElementById('lightbox').classList.remove('hidden');
-  document.getElementById('lightbox').classList.add('flex');
-  document.getElementById('lightbox-img').src = src;
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function getGalleryImages() {
+  const visibleSection = document.querySelector('.section:not(.hidden)');
+  if (!visibleSection) return [];
+
+  return Array.from(visibleSection.querySelectorAll('img'))
+    .filter(img => img.id !== 'lightbox-img' && img.src);
 }
 
-document.getElementById('lightbox').addEventListener('click', () => {
-  document.getElementById('lightbox').classList.add('hidden');
-  document.getElementById('lightbox').classList.remove('flex');
+function updateLightbox() {
+  if (!lightboxImages.length) return;
+  document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex].src;
+}
+
+function openLightbox(src) {
+  lightboxImages = getGalleryImages();
+  lightboxIndex = lightboxImages.findIndex(img => img.src === src);
+  if (lightboxIndex < 0) lightboxIndex = 0;
+
+  document.getElementById('lightbox').classList.remove('hidden');
+  document.getElementById('lightbox').classList.add('flex');
+  updateLightbox();
+}
+
+function showPreviousPhoto() {
+  if (!lightboxImages.length) return;
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
+}
+
+function showNextPhoto() {
+  if (!lightboxImages.length) return;
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  updateLightbox();
+}
+
+document.getElementById('lightbox-prev').addEventListener('click', function(event) {
+  event.stopPropagation();
+  showPreviousPhoto();
+});
+
+document.getElementById('lightbox-next').addEventListener('click', function(event) {
+  event.stopPropagation();
+  showNextPhoto();
+});
+
+document.addEventListener('keydown', function(event) {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox.classList.contains('hidden')) return;
+
+  if (event.key === 'ArrowLeft') showPreviousPhoto();
+  if (event.key === 'ArrowRight') showNextPhoto();
+  if (event.key === 'Escape') {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+  }
+});
+
+document.getElementById('lightbox').addEventListener('click', function(event) {
+  if (event.target === this) {
+    this.classList.add('hidden');
+    this.classList.remove('flex');
+  }
 });
 </script>
 
