@@ -4,14 +4,6 @@
   <meta name="robots" content="noindex">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DN4TZZZ1R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-4DN4TZZZ1R');
-  </script>
   <title>Carlo Zuddas - Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -25,6 +17,13 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
+  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4DN4TZZZ1R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4DN4TZZZ1R');
   </script>
 </head>
 <body class="bg-black text-white font-sans">
@@ -503,6 +502,51 @@ document.getElementById('lightbox').addEventListener('click', function(event) {
     this.classList.remove('flex');
   }
 });
+</script>
+
+
+<script>
+/* OPEN A SPECIFIC PHOTO FROM A SHARED LINK
+   Example: https://carlozuddasphoto.com/?photo=0010.JPG
+*/
+function openPhotoFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedPhoto = params.get('photo');
+  if (!requestedPhoto) return;
+
+  const normalizedRequested = decodeURIComponent(requestedPhoto).split('/').pop().toLowerCase();
+
+  const candidates = Array.from(document.querySelectorAll('.section img'))
+    .filter(img => img.id !== 'lightbox-img' && img.src);
+
+  const target = candidates.find(img => {
+    const filename = decodeURIComponent(new URL(img.src, window.location.href).pathname)
+      .split('/').pop()
+      .toLowerCase();
+    return filename === normalizedRequested;
+  });
+
+  if (!target) return;
+
+  const section = target.closest('.section');
+  if (section && section.id) {
+    showSection(section.id);
+
+    // Let showSection update the visible section before building the lightbox gallery.
+    setTimeout(() => {
+      openLightbox(target.src);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'photo_opened', {
+          photo_name: target.src.split('/').pop(),
+          gallery: section.id
+        });
+      }
+    }, 50);
+  }
+}
+
+window.addEventListener('load', openPhotoFromUrl);
 </script>
 
 </body>
